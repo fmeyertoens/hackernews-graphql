@@ -1,18 +1,5 @@
 import { GraphQLServer } from 'graphql-yoga';
 
-const typeDefs = `
-type Query {
-  info: String!
-  feed: [Link!]!
-}
-
-type Link {
-  id: ID!
-  description: String!
-  url: String!
-}
-`;
-
 const links = [{
   id: 'link-0',
   url: 'www.howtographql.com',
@@ -24,6 +11,7 @@ const resolvers = {
     info: () => `This is the API of a Hackernews Clone`,
     feed: () => links,
   },
+  // the following trivial Link resolvers can be omitted
   Link: {
     id: (parent: any) => parent.id,
     description: ({ description = '' }) => description,
@@ -32,7 +20,7 @@ const resolvers = {
 };
 
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: './src/schema.graphql',
   resolvers,
 });
 

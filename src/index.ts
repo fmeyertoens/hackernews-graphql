@@ -13,12 +13,6 @@ const resolvers = {
     info: () => `This is the API of a Hackernews Clone`,
     feed: () => links,
   },
-  // the following trivial Link resolvers can be omitted
-  Link: {
-    id: (parent: any) => parent.id,
-    description: ({ description = '' }) => description,
-    url: (parent: any) => parent.url,
-  },
   Mutation: {
     post: (parent: any, { description, url }: any) => {
       const link = {

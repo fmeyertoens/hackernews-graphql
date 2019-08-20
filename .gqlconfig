@@ -1,7 +1,7 @@
 /* .gqlconfig */
  {
    schema: {
-     files: "src/**/*.gql"
+     files: "src/**/*.graphql"
    },
    query: {
      files: [ /* define file paths which you'd like the gql parser to watch and give autocomplete suggestions for */
@@ -11,7 +11,7 @@
          isRelay: true,
        },
        {
-         match: '**/*.gql',
+         match: 'src/**/*.graphql',
          parser: 'QueryParser',
        },
      ],
